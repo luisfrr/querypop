@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -37,6 +37,7 @@ namespace QueryPopSSMS
   [ProvideMenuResource("Menus.ctmenu", 1)]
   [Guid(TestCommandPackage.PackageGuidString)]
   [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
+  [ProvideToolWindow(typeof(QueryFormatConfig))]
   public sealed class TestCommandPackage : AsyncPackage
   {
     /// <summary>
@@ -70,6 +71,7 @@ namespace QueryPopSSMS
       // Do any initialization that requires the UI thread after switching to the UI thread.
       await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
       await TestCommand.InitializeAsync(this);
+        await QueryFormatConfigCommand.InitializeAsync(this);
     }
 
     #endregion
