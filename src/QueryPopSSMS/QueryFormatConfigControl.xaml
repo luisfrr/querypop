@@ -11,7 +11,7 @@
              Name="MyToolWindow" Background="White">
   <Grid>
     <StackPanel Orientation="Vertical" Background="White">
-      <TextBlock FontStyle="Italic" Margin="0,16,0,0" HorizontalAlignment="Center">Configuración QueryFormat</TextBlock>
+      <TextBlock FontStyle="Italic" Margin="0,16,0,0" HorizontalAlignment="Center">Hola mundo</TextBlock>
 
       <Grid Margin="0,16,0,0">
         <Grid.ColumnDefinitions>
