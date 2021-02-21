@@ -39,6 +39,7 @@ namespace QueryPopSSMS
   [Guid(QueryPopCommandPackage.PackageGuidString)]
   [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
   [ProvideToolWindow(typeof(QueryFormatConfig))]
+  //[ProvideToolWindow(typeof(QueryFormatConfig), Style = VsDockStyle.Tabbed, Orientation = ToolWindowOrientation.Right, Window = ToolWindowGuids.SolutionExplorer)]
   public sealed class QueryPopCommandPackage : AsyncPackage
   {
     /// <summary>
