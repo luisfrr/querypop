@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <!--  This is the file that defines the actual layout and type of the commands.
@@ -59,11 +59,11 @@
           <ButtonText>Invoke Hello QueryPop</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidTestCommandPackageCmdSet" id="cmdidQueryFormatConfigCommand" priority="0x0100" type="Button">
-        <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWS1" />
+      <Button guid="guidTestCommandPackageCmdSet" id="cmdidQueryFormatConfigCommand" priority="0x0200" type="Button">
+        <Parent guid="guidTestCommandPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages1" id="bmpPic1" />
         <Strings>
-          <ButtonText>QueryFormatConfig</ButtonText>
+          <ButtonText>Query Format Config</ButtonText>
         </Strings>
       </Button>
     </Buttons>

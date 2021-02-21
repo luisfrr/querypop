@@ -1,4 +1,4 @@
-﻿namespace QueryPopSSMS
+namespace QueryPopSSMS.Commands
 {
   using System.Diagnostics.CodeAnalysis;
   using System.Windows;
@@ -29,6 +29,11 @@
       MessageBox.Show(
           string.Format(System.Globalization.CultureInfo.CurrentUICulture, "Invoked '{0}'", this.ToString()),
           "QueryFormatConfig");
+    }
+
+    private void Button2_Click(object sender, RoutedEventArgs e)
+    {
+
     }
   }
 }

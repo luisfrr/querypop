@@ -1,4 +1,4 @@
-﻿namespace QueryPopSSMS
+namespace QueryPopSSMS.Commands
 {
   using System;
   using System.Runtime.InteropServices;
@@ -23,7 +23,7 @@
     /// </summary>
     public QueryFormatConfig() : base(null)
     {
-      this.Caption = "QueryFormatConfig";
+      this.Caption = "Query Format Config";
 
       // This is the user control hosted by the tool window; Note that, even if this class implements IDisposable,
       // we are not calling Dispose on this object. This is because ToolWindowPane calls Dispose on
