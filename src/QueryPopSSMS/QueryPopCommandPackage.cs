@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -11,6 +11,7 @@ using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.Win32;
+using QueryPopSSMS.Commands;
 using Task = System.Threading.Tasks.Task;
 
 namespace QueryPopSSMS
@@ -35,9 +36,11 @@ namespace QueryPopSSMS
   [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
   [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
   [ProvideMenuResource("Menus.ctmenu", 1)]
-  [Guid(TestCommandPackage.PackageGuidString)]
+  [Guid(QueryPopCommandPackage.PackageGuidString)]
   [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
-  public sealed class TestCommandPackage : AsyncPackage
+  [ProvideToolWindow(typeof(QueryFormatConfig))]
+  //[ProvideToolWindow(typeof(QueryFormatConfig), Style = VsDockStyle.Tabbed, Orientation = ToolWindowOrientation.Right, Window = ToolWindowGuids.SolutionExplorer)]
+  public sealed class QueryPopCommandPackage : AsyncPackage
   {
     /// <summary>
     /// TestCommandPackage GUID string.
@@ -45,9 +48,9 @@ namespace QueryPopSSMS
     public const string PackageGuidString = "e8e000ec-c214-4540-8c0c-c7f86dbfa6d9";
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TestCommandPackage"/> class.
+    /// Initializes a new instance of the <see cref="QueryPopCommandPackage"/> class.
     /// </summary>
-    public TestCommandPackage()
+    public QueryPopCommandPackage()
     {
       // Inside this method you can place any initialization code that does not require
       // any Visual Studio service because at this point the package object is created but
@@ -70,6 +73,7 @@ namespace QueryPopSSMS
       // Do any initialization that requires the UI thread after switching to the UI thread.
       await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
       await TestCommand.InitializeAsync(this);
+      await QueryFormatConfigCommand.InitializeAsync(this);
     }
 
     #endregion

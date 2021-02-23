@@ -1,0 +1,108 @@
+<UserControl x:Class="QueryPopSSMS.Commands.QueryFormatConfigControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
+             xmlns:local="clr-namespace:QueryPopSSMS.Helpers"
+             local:VsTheme.UseVsTheme="True"             
+             mc:Ignorable="d"
+             Width="280" Height="auto"
+             Name="MyToolWindow">
+  <Grid>
+    <StackPanel Orientation="Vertical">
+
+      <Label Margin="8,8,8,0" HorizontalAlignment="Left" FontSize="12" Content="Ancho Máximo:" Height="24"/>
+      <TextBox x:Name="txtMaxLenght" FontSize="12" Margin="8,0,8,0" Height="24" />
+
+      <Label Margin="8,8,8,0" HorizontalAlignment="Left" FontSize="12" Content="Espacios por TAB:" Height="24"/>
+      <TextBox x:Name="txtTABSpace" FontSize="12" Margin="8,0,8,0" Height="24" />
+
+      <CheckBox x:Name="chkComasTraseras" Margin="16,16,8,0" HorizontalAlignment="Left" Content="Comas Traseras"/>
+      <CheckBox x:Name="chkPalabrasClaveMayus" Margin="16,8,8,0" HorizontalAlignment="Left" Content="Palabras Clave en Mayúsculas"/>
+      <CheckBox x:Name="chkSaltoSeccionesOn" Margin="16,8,8,0" HorizontalAlignment="Left" Content="Salto en Secciones ON"/>
+      <CheckBox x:Name="chkEspaciosDespuesComa" Margin="16,8,8,0" HorizontalAlignment="Left" Content="Espacios Después de Coma"/>
+      <CheckBox x:Name="chkEstandarPalabrasClave" Margin="16,8,8,0" HorizontalAlignment="Left" Content="Activar Estandarización de Pablabras Claves"/>
+
+      <CheckBox x:Name="chkExpListaIn" Margin="16,8,8,0" HorizontalAlignment="Left" Content="Expandir Listas IN"/>
+      <CheckBox x:Name="chkExpListaComas" Margin="16,8,8,0" HorizontalAlignment="Left" Content="Expandir Listas de Coma"/>
+      <CheckBox x:Name="chkExpDeclacionesCase" Margin="16,8,8,0" HorizontalAlignment="Left" Content="Expandir Declaraciones CASE"/>
+      <CheckBox x:Name="chkExpExpresionBooleanas" Margin="16,8,8,0" HorizontalAlignment="Left" Content="Expandir Expresiones Booleanas"/>
+      <CheckBox x:Name="chkExpCondicionesBetween" Margin="16,8,8,0" HorizontalAlignment="Left" Content="Expandir Condiciones BETWEEN"/>
+
+      <Button Margin="8,24,8,0" Content="Guardar" Click="button1_Click"/>
+      <Button Margin="8,8,8,16" Content="Cancelar" Click="Button2_Click"/>
+
+
+      <!--<Grid Margin="0,8,0,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0" >
+          <Label Margin="5,0,0,0" HorizontalAlignment="Left" FontSize="12" Content="Ancho Máximo:" Height="26"/>
+          <TextBox Margin="5,0,0,0" HorizontalAlignment="Left" FontSize="12" Height="26" Width="200"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0" >
+          <Label Margin="5,0,0,0" HorizontalAlignment="Left" FontSize="10" Content="Espacios por TAB:" Height="24"/>
+          <TextBox Margin="5,0,0,0" HorizontalAlignment="Left" FontSize="20" Height="28" Width="200"/>
+        </StackPanel>
+
+        
+      </Grid>-->
+
+      <!--<Grid Margin="0,16,0,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <CheckBox x:Name="chkExpListaComas" Margin="5" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0"  Content="Expandir Listas de Coma"/>
+        <CheckBox x:Name="chkExpExpresionBooleanas" Margin="5" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Content="Expandir Expresiones Booleanas"/>
+        <CheckBox x:Name="chkExpCondicionesBetween" Margin="5" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2" Content="Expandir Condiciones BETWEEN"/>
+        <CheckBox x:Name="chkExpDeclacionesCase" Margin="5" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="3" Content="Expandir Declaraciones CASE"/>
+        <CheckBox x:Name="chkExpListaIn" Margin="5" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="4" Content="Expandir Listas IN"/>
+
+        <CheckBox x:Name="chkComasTraseras" Margin="5" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0" Content="Comas Traseras"/>
+        <CheckBox x:Name="chkPalabrasClaveMayus" Margin="5" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Content="Palabras Clave en Mayúsculas"/>
+        <CheckBox x:Name="chkSaltoSeccionesOn" Margin="5" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" Content="Salto en Secciones ON"/>
+        <CheckBox x:Name="chkEspaciosDespuesComa" Margin="5" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" Content="Espacios Después de Coma"/>
+        <CheckBox x:Name="chkEstandarPalabrasClave" Margin="5" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4" Content="Activar Estandarización de Pablabras Claves"/>
+
+      </Grid>-->
+
+      <!--<Grid Margin="0,16,0,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Column="1" Grid.Row="0" >
+          <Button Width="60"  Content="Guardar" Click="button1_Click" x:Name="button1" Margin="0,0,8,0"/>
+          <Button Width="60" Content="Cancelar" Click="Button2_Click" x:Name="button2" Margin="0,0,8,0"  />
+        </StackPanel>
+
+      </Grid>-->
+
+    </StackPanel>
+  </Grid>
+</UserControl>
